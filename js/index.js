@@ -29,7 +29,7 @@ let food = {
 };
 
 let Score = 0;
-score.innerHTML = "Score : " + Score;
+score.innerHTML = "Score : " + Score + "</br> Speed : " + speed;
 
 // game functions
 function main(ctime) {
@@ -81,7 +81,7 @@ function gameEngine() {
             speed = prompt("Please enter a speed between 3 to 15 : ");
         }
         Score = 0;
-        score.innerHTML = "Score : " + Score;
+        score.innerHTML = "Score : " + Score + "</br> Speed : " + speed;
         snakeArray = [
             { x: 15, y: 15 },
             { x: 14, y: 15 },
@@ -94,7 +94,7 @@ function gameEngine() {
     if (snakeArray[0].x === food.x && snakeArray[0].y === food.y) {
         eatsound.play();
         Score += 1;
-        score.innerHTML = "Score : " + Score;
+        score.innerHTML = "Score : " + Score + "</br> Speed : " + speed;
         snakeArray.unshift({
             x: snakeArray[0].x + inputDirection.x,
             y: snakeArray[0].y + inputDirection.y,
