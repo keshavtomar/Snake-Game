@@ -6,10 +6,17 @@ const movesound = new Audio("move.mp3");
 const music = new Audio("music.mp3");
 let lastPaintTime = 0;
 let speed = 8;
+
+var x = window.matchMedia("(max-width: 900px)");
+if (x.matches) {
+    alert("This game can only be played on a Laptop in fullscreen mode");
+}
+
 speed = prompt("Please enter a speed between 3 to 15 : ");
 while (!(speed < 16 && speed > 2)) {
     speed = prompt("Please enter a speed between 3 to 15 : ");
 }
+
 let snakeArray = [
     { x: 15, y: 15 },
     { x: 14, y: 15 },
@@ -63,6 +70,12 @@ function gameEngine() {
         music.pause();
         inputDirection = { x: 0, y: 0 };
         alert("Game Over! Your Score was " + Score);
+
+        x = window.matchMedia("(max-width: 900px)");
+        if (x.matches) {
+            alert("This game can only be played on a Laptop in fullscreen mode");
+        }
+
         speed = prompt("Please enter a speed between 3 to 15 : ");
         while (!(speed < 16 && speed > 2)) {
             speed = prompt("Please enter a speed between 3 to 15 : ");
