@@ -7,11 +7,6 @@ const music = new Audio("music.mp3");
 let lastPaintTime = 0;
 let speed = 8;
 
-var x = window.matchMedia("(max-width: 900px)");
-if (x.matches) {
-    alert("This game can only be played on a Laptop in fullscreen mode");
-}
-
 speed = prompt("Please enter a speed between 3 to 15 : ");
 while (!(speed < 16 && speed > 2)) {
     speed = prompt("Please enter a speed between 3 to 15 : ");
@@ -69,12 +64,7 @@ function gameEngine() {
         gameoversound.play();
         music.pause();
         inputDirection = { x: 0, y: 0 };
-        alert("Game Over! Your Score was " + Score);
-
-        x = window.matchMedia("(max-width: 900px)");
-        if (x.matches) {
-            alert("This game can only be played on a Laptop in fullscreen mode");
-        }
+        alert("Game Over! Your Score was " + Score + " at the speed of " + speed);
 
         speed = prompt("Please enter a speed between 3 to 15 : ");
         while (!(speed < 16 && speed > 2)) {
@@ -140,7 +130,6 @@ function gameEngine() {
 //main logic starts here
 window.requestAnimationFrame(main);
 window.addEventListener("keydown", (e) => {
-    inputDirection = { x: 0, y: 0 }; //start the game
     music.play();
     switch (e.key) {
         case "ArrowUp":
@@ -168,3 +157,33 @@ window.addEventListener("keydown", (e) => {
             break;
     }
 });
+
+document.getElementById("buttonBoard").onclick = function clickEvent(e) {
+    console.log(e.target.id);
+    music.play();
+    switch (e.target.id) {
+        case "buttonUp":
+            movesound.play();
+            inputDirection.x = 0;
+            inputDirection.y = -1;
+            break;
+        case "buttonDown":
+            movesound.play();
+            inputDirection.x = 0;
+            inputDirection.y = 1;
+            break;
+        case "buttonLeft":
+            movesound.play();
+            inputDirection.x = -1;
+            inputDirection.y = 0;
+            break;
+        case "buttonRight":
+            movesound.play();
+            inputDirection.x = 1;
+            inputDirection.y = 0;
+            break;
+
+        default:
+            break;
+    }
+};

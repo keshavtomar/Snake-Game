@@ -34,13 +34,13 @@
     top: 30px;
     right: 30px;
     border: 5px groove #434242;
-    width: 20%;
+    width: 100px;
 }
 
 .head {
-    background-image: url("../snakehead.jpg");
+    background: rgb(173, 19, 50);
+    background: radial-gradient(circle, rgba(173, 19, 50, 1) 0%, rgba(177, 216, 200, 1) 90%);
     border-radius: 100%;
-    background-size: cover;
 }
 
 .snake {
@@ -53,4 +53,54 @@
     background-image: url("../food.jpg");
     background-size: cover;
     border-radius: 100%;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+button {
+    width: 90px;
+    height: 70px;
+    background-color: #000000;
+    color: white;
+    border-radius: 40%;
+}
+
+#buttonBoard {
+    display: none;
+}
+
+#buttonUp {
+    grid-row: 1;
+    grid-column: 2;
+}
+
+#buttonDown {
+    grid-row: 2;
+    grid-column: 2;
+}
+
+#buttonLeft {
+    grid-row: 2;
+    grid-column: 1;
+}
+
+#buttonRight {
+    grid-row: 2;
+    grid-column: 3;
+}
+
+@media only screen and (max-width: 600px) {
+    #board {
+        position: relative;
+        bottom: 70px;
+    }
+    #buttonBoard {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        position: absolute;
+        bottom: 8%;
+    }
 }
