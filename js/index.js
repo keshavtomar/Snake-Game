@@ -7,9 +7,9 @@ const music = new Audio("music.mp3");
 let lastPaintTime = 0;
 let speed = 8;
 
-speed = prompt("Hii, Malaika here is a little gift for you.   Please enter a speed between 3 to 15 : ");
+speed = prompt("Please enter a speed between 3 to 15 : ");
 while (!(speed < 16 && speed > 2)) {
-    speed = prompt("Hii, Malaika here is a little gift for you.   Please enter a speed between 3 to 15 : ");
+    speed = prompt("Please enter a speed between 3 to 15 : ");
 }
 
 let snakeArray = [
@@ -66,9 +66,9 @@ function gameEngine() {
         inputDirection = { x: 0, y: 0 };
         alert("Game Over! Your Score was " + Score + " at the speed of " + speed);
 
-        speed = prompt("Hii, Malaika here is a little gift for you.   Please enter a speed between 3 to 15 : ");
+        speed = prompt("Please enter a speed between 3 to 15 : ");
         while (!(speed < 16 && speed > 2)) {
-            speed = prompt("Hii, Malaika here is a little gift for you.   Please enter a speed between 3 to 15 : ");
+            speed = prompt(" Please enter a speed between 3 to 15 : ");
         }
         Score = 0;
         score.innerHTML = "Score : " + Score + "</br> Speed : " + speed;
@@ -84,7 +84,7 @@ function gameEngine() {
     if (snakeArray[0].x === food.x && snakeArray[0].y === food.y) {
         eatsound.play();
         Score += 1;
-        score.innerHTML = "You are too cute Malaika </br> Score : " + Score + "</br> Speed : " + speed;
+        score.innerHTML = "Score : " + Score + " Speed : " + speed;
         snakeArray.unshift({
             x: snakeArray[0].x + inputDirection.x,
             y: snakeArray[0].y + inputDirection.y,
